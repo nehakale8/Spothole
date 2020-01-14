@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".report_instruct"></activity>
-        <activity android:name=".er_login" />
-        <activity android:name=".civil_login" />
-        <activity android:name=".citizen_login" />
+        <activity android:name=".ER.er_main"/>
+        <activity android:name=".Citizen.report_instruct" />
+        <activity android:name=".ER.er_login" />
+        <activity android:name=".Civil.civil_login" />
+        <activity android:name=".Citizen.citizen_login" />
         <activity android:name=".login" />
         <activity android:name=".MainActivity">
             <intent-filter>
