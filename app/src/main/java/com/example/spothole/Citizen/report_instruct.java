@@ -20,7 +20,7 @@ public class report_instruct extends AppCompatActivity {
 
         btn_gotit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(report_instruct.this, report_instruct.class);
+                Intent intent = new Intent(report_instruct.this, ReportPothole.class);
                 startActivity(intent);
             }
         });
