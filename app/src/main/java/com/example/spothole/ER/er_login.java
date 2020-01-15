@@ -54,7 +54,7 @@ public class er_login extends AppCompatActivity {
                         Toast.makeText(er_login.this, "Please enter password", Toast.LENGTH_LONG).show();
                         return;
                     } else if (password.length() < 6) {
-                        Toast.makeText(er_login.this, " Password Incorrect!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(er_login.this, " Password is too small!", Toast.LENGTH_LONG).show();
                     } else if (!(email.isEmpty() && password.isEmpty())) {
                         mfirebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(er_login.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -75,7 +75,6 @@ public class er_login extends AppCompatActivity {
                     }
                 }
             });
-
         }
     }
 }

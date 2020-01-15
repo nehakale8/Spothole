@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ER.er_main"/>
+        <activity android:name=".Civil.civil_main"></activity>
+        <activity android:name=".ER.er_main" />
         <activity android:name=".Citizen.report_instruct" />
         <activity android:name=".ER.er_login" />
         <activity android:name=".Civil.civil_login" />
