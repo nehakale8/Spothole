@@ -19,11 +19,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import clarifai2.api.ClarifaiBuilder;
-import clarifai2.api.ClarifaiClient;
-import clarifai2.dto.input.ClarifaiInput;
-import clarifai2.dto.model.output.ClarifaiOutput;
-import clarifai2.dto.prediction.Concept;
 
 public class ReportPothole extends AppCompatActivity {
 
@@ -31,46 +26,6 @@ public class ReportPothole extends AppCompatActivity {
     File photoFile;
     String photoPath;
     TextView info;
-    private class ClarifaiTask extends AsyncTask<File, Integer, Boolean> {
-        protected Boolean doInBackground(File... images) {
-            ClarifaiClient client = new ClarifaiBuilder("274cf60f4b3d4766a4c027fa6da97514").buildSync();
-            List<ClarifaiOutput<Concept>> predictionResults;
-            for (File image : images) {
-                predictionResults = client.getDefaultModels().generalModel().predict()
-                        .withInputs(ClarifaiInput.forImage(image))
-                        .executeSync()
-                        .get();
-
-                for (ClarifaiOutput<Concept> result : predictionResults) {
-                    for (Concept datum : result.data()) {
-
-                        Toast toast=Toast.makeText(getApplicationContext(),"hello"+datum.name(),Toast.LENGTH_LONG);
-                        toast.show();
-                        if (datum.name().contains("door"))
-                            return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        protected void onPostExecute(Boolean result) {
-
-            // Delete photo
-            (new File(photoPath)).delete();
-            photoPath = null;
-/*
-            // If image contained object, close the AlarmActivity
-            if (result) {
-                info.setText("Success!");
-                finish();
-            } else info.setText("Try again...");
-            */
-
-        }
-
-    }
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -106,13 +61,6 @@ public class ReportPothole extends AppCompatActivity {
             });
         }
 
-        @Override
-         public void onResume() {
-            super.onResume();
-            if (photoPath != null) {
-                new ClarifaiTask().execute(new File(photoPath));
-            }
-        }
 
 }
 
