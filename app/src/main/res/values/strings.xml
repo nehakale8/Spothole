@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Spothole</string>
     <string name="title_activity_login">login</string>
+    <string name="capture_and_upload">Capture and Upload</string>
+
+    <string name="pothole">Pothole</string>
+    <string name="image">Image</string>
 </resources>
