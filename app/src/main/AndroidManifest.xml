@@ -2,6 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.spothole">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,11 +19,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Citizen.ImageActivity"></activity>
         <activity android:name=".Citizen.citizen_login" />
         <activity android:name=".Citizen.report_instruct" />
-        <activity android:name=".Citizen.ReportPothole"></activity>
+        <activity android:name=".Citizen.ReportPothole" />
         <activity android:name=".Civil.civil_login" />
-        <activity android:name=".Civil.civil_main"/>
+        <activity android:name=".Civil.civil_main" />
         <activity android:name=".ER.er_login" />
         <activity android:name=".ER.er_main" />
         <activity android:name=".login" />
@@ -39,14 +50,5 @@
                 android:resource="@xml/file_paths" />
         </provider>
     </application>
-
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
 
 </manifest>
